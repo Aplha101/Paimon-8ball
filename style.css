@@ -1,0 +1,223 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+  font-family: 'Genshin'; 
+  src: url('fonts/ja-jp.ttf') format('truetype'); 
+}
+
+body{
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    font-family: 'Genshin', sans-serif;
+}
+button, input {
+    font-family: 'Genshin', sans-serif;
+    font-size: 12px;
+    font-weight: 0;
+    font-style: normal;
+}
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("assets/bg/5c8a583cb6be10b7008022ee2e6f4692_5393423716025689867.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(3px);
+    transform: scale(1.05);
+    z-index: -1;
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.paimon{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paimon img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.dia{
+    width: 95%; 
+    max-width: 600px; 
+    padding: 12px;
+    background: linear-gradient(
+        to bottom,
+        rgba(20, 20, 20, 0.65),
+        rgba(20, 20, 20, 0.35),
+        rgba(20, 20, 20, 0.0)
+    );
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border-radius: 12px;
+}
+
+.options{
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 12px;
+    width: 95%;
+    max-width: 500px;
+}
+
+.options input{
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+}
+
+.options input::placeholder{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.options button{
+    padding: 8px 16px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.va{
+    align-items: center;
+    color:gold;
+    justify-content: center;
+    text-align: center;
+    margin:20px;
+}
+
+#paimonname{
+    font-size: 24px;
+    border-bottom: gold 2px solid;
+}
+
+#paimon-text{
+    font-size: 18px;
+    margin-top: 10px;
+    color:white;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+    /* 1. Increased max-width so longer sentences fit */
+    max-width: 450px; 
+    z-index: 2;
+}
+
+.choice-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 6px;
+    padding-right: 40px;
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    border: none;
+    transition: transform 0.2s ease;
+    
+    /* 2. Prevent text from going to a second line */
+    white-space: nowrap; 
+    
+    /* 3. Ensure the button expands to fit its content */
+    width: max-content; 
+    min-width: 280px;
+
+    background: linear-gradient(
+        to right,
+        rgba(45, 56, 67, 0.95) 0%,
+        rgba(45, 56, 67, 0.8) 60%,
+        rgba(45, 56, 67, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(to right, black 75%, transparent 100%);
+    mask-image: linear-gradient(to right, black 75%, transparent 100%);
+}
+
+.choice-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+}
+
+.choice-btn:hover {
+    transform: translateX(8px);
+    background: linear-gradient(
+        to right,
+        rgba(60, 75, 90, 0.95) 0%,
+        rgba(60, 75, 90, 0.8) 60%,
+        rgba(60, 75, 90, 0) 100%
+    );
+}
+
+.choice-icon-wrapper svg {
+    transform: scaleX(-1);
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .paimon {
+        width: 400px;
+        height: 400px;
+    }
+
+    .wrapper {
+        height: 400px;
+    }
+
+    .buttons {
+        position: absolute;
+        left: calc(50% + 150px); 
+        margin-top: 0;
+    }
+}
+
+.buttons.hidden {
+    display: none;
+}
