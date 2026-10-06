@@ -9,7 +9,7 @@ Paimon-8ball is a Genshin Impact–inspired Magic 8 Ball web app where Paimon an
 
 ## Demo
 Open `index.html` in a browser to try it locally.  
-(You can add a GitHub Pages link here)
+
 
 
 ## Usage
